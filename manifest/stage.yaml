@@ -1,12 +1,14 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: argo-repos
+  name: argo-stage
   namespace: argocd
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io
 spec:
   project: default
   source:
-    repoURL: https://github.com/araminian/argo-repos.git
+    repoURL: https://github.com/araminian/argo-stage.git
     targetRevision: HEAD
     path: manifest
   destination:
